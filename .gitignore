@@ -1,0 +1,9 @@
+*.user
+*.cache
+bin
+obj
+.vscode/
+packages
+.vs
+.idea
+.DS_Store
