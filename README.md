@@ -13,6 +13,6 @@ dotnet --info
 
 ## Running app
 ```
-1. dotnet build
-2. dotnet run --project dotnet-perf.csproj
+1. dotnet publish -c Release -r linux-arm --self-contained true
+2. ./bin/Release/net5.0/linux-arm/dotnet-perf
 ```
