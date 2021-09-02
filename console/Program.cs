@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
 using System.Threading.Tasks;
+using Amazon.Lambda.Core;
 
+// Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
+[assembly: LambdaSerializer(
+typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace dotnet_perf
 {
   class Program
   {
     static async Task Main()
     {
+      Console.WriteLine(AssemblyName.GetAssemblyName(@".\bin\Debug\netcoreapp3.1\dotnet-perf.dll"));
+
       Stopwatch sw = new Stopwatch();
       sw.Start();
-      
+
       var apiKey = Environment.GetEnvironmentVariable("APIKEY");
       if (string.IsNullOrEmpty(apiKey)) {
         System.Console.WriteLine("ApiKey is missing!");

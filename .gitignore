@@ -7,3 +7,4 @@ packages
 .vs
 .idea
 .DS_Store
+console/package
